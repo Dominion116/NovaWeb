@@ -29,6 +29,9 @@ export function WhyChooseUs() {
         <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-center">
           Why NovaWeb?
         </h2>
+        <p className="mt-4 text-muted-foreground text-lg sm:text-xl text-center max-w-2xl mx-auto">
+          We build digital experiences that drive growth and engagement.
+        </p>
         <div className="mt-10 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {reasons.map((reason) => (
             <div
