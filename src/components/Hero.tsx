@@ -8,9 +8,9 @@ export function Hero() {
       <div className="text-center max-w-3xl">
         <Badge
           variant="secondary"
-          className="rounded-full py-1 border-border"
+          className="rounded-full py-1 border-border whitespace-nowrap"
         >
-          <a href="#">
+          <a href="#" className="flex items-center">
             Just released v1.0.0 <ArrowUpRight className="ml-1 size-4" />
           </a>
         </Badge>
