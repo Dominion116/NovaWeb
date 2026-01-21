@@ -26,7 +26,7 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="py-20 flex items-center justify-center">
-      <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-[2.5rem] md:leading-[1.2] font-semibold tracking-[-0.03em] text-pretty">
             Strengthen Your Digital Strategy
