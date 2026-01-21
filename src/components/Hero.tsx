@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function Hero() {
   return (
@@ -22,16 +22,9 @@ export function Hero() {
           and drive results. From development to maintenance, NovaWeb is your
           partner for digital success.
         </p>
-        <div className="mt-12 flex items-center justify-center gap-4">
+        <div className="mt-12 flex items-center justify-center">
           <Button size="lg" className="rounded-full text-base">
             Get a Quote <ArrowUpRight className="size-5" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full text-base shadow-none"
-          >
-            <Sparkles className="size-5" /> Why NovaWeb
           </Button>
         </div>
       </div>
