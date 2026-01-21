@@ -4,11 +4,13 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-              NovaWeb
-            </span>
-            <span className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} NovaWeb Services. All rights reserved.
+            <a href="/" className="flex items-center gap-2 group">
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-primary group-hover:opacity-80 transition-opacity">
+                NovaWeb
+              </span>
+            </a>
+            <span className="text-sm text-muted-foreground ml-2">
+              &copy; {new Date().getFullYear()} NovaWeb Services.
             </span>
           </div>
           <nav className="flex gap-6 text-sm text-muted-foreground">

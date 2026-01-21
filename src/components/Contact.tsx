@@ -15,7 +15,7 @@ export function Contact() {
             Ready to start your project? Contact us today for a free consultation.
           </p>
         </div>
-        <div className="mx-auto max-w-xl bg-card rounded-xl p-8 shadow-sm border border-border/50">
+        <div className="mx-auto max-w-xl bg-card/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-primary/5 border border-primary/10">
           <form className="grid gap-6">
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>

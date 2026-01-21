@@ -33,8 +33,8 @@ export function WhyChooseUs() {
             {reasons.map((reason) => (
               <div key={reason.title} className="relative pl-16">
                 <dt className="text-base font-semibold leading-7 text-foreground">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                    <CheckCircle2 className="h-6 w-6 text-primary-foreground" aria-hidden="true" />
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary border border-primary/20 shadow-sm shadow-primary/10 transition-transform duration-300 hover:scale-110">
+                    <CheckCircle2 className="h-6 w-6 text-primary" aria-hidden="true" />
                   </div>
                   {reason.title}
                 </dt>

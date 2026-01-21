@@ -39,12 +39,12 @@ export function Services() {
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <Card key={service.title} className="bg-card hover:shadow-lg transition-shadow duration-300 border-border/50">
+            <Card key={service.title} className="bg-card/50 hover:bg-card hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border-border/50 group">
               <CardHeader>
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-secondary border border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm shadow-primary/10">
                   <service.icon className="h-6 w-6" />
                 </div>
-                <CardTitle>{service.title}</CardTitle>
+                <CardTitle className="group-hover:text-primary transition-colors">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>{service.description}</CardDescription>
