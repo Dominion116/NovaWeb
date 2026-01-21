@@ -1,53 +1,75 @@
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Code2, Globe, Server } from "lucide-react";
+  BookCheck,
+  ChartPie,
+  FolderSync,
+  Goal,
+  Users,
+  Zap,
+} from "lucide-react";
 
 const services = [
   {
+    icon: Goal,
     title: "Website Development",
     description: "Custom built websites using the latest technologies like React, Next.js, and Tailwind CSS.",
-    icon: Code2,
   },
   {
+    icon: BookCheck,
     title: "Website Redesign",
     description: "Transform your outdated site into a modern, high-converting digital experience.",
-    icon: Globe,
   },
   {
+    icon: FolderSync,
     title: "Maintenance & Hosting",
     description: "Reliable hosting solutions and ongoing maintenance to keep your site secure and fast.",
-    icon: Server,
+  },
+  {
+    icon: Zap,
+    title: "Accelerate Growth",
+    description: "Supercharge your growth by implementing strategies that drive results quickly and efficiently.",
+  },
+  {
+    icon: ChartPie,
+    title: "Instant Insights",
+    description: "Gain immediate, actionable insights with a quick glance, enabling fast decision-making.",
+  },
+  {
+    icon: Users,
+    title: "Engage with Your Audience",
+    description: "Boost audience engagement with interactive features like polls, quizzes, and forms.",
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="py-20 sm:py-32 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Our Services
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Comprehensive web solutions tailored to your business needs.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <section id="services" className="py-20 flex items-center justify-center">
+      <div className="max-w-7xl w-full px-6">
+        <h2 className="text-4xl md:text-[2.5rem] md:leading-[1.2] font-semibold tracking-[-0.03em] sm:max-w-xl text-pretty">
+          Strengthen Your Digital Strategy
+        </h2>
+        <p className="mt-2 text-muted-foreground text-lg sm:text-xl">
+          Enhance your online presence with intelligent tools designed for success.
+        </p>
+        <div className="mt-10 w-full mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
           {services.map((service) => (
-            <Card key={service.title} className="bg-card/50 hover:bg-card hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border-border/50 group">
+            <Card
+              key={service.title}
+              className="flex flex-col border rounded-xl overflow-hidden shadow-none pb-0 bg-card/50 hover:bg-card transition-colors duration-300"
+            >
               <CardHeader>
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-secondary border border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm shadow-primary/10">
-                  <service.icon className="h-6 w-6" />
+                <div className="text-primary">
+                  <service.icon className="size-6" />
                 </div>
-                <CardTitle className="group-hover:text-primary transition-colors">{service.title}</CardTitle>
+                <h4 className="!mt-3 text-xl font-semibold tracking-tight">
+                  {service.title}
+                </h4>
+                <p className="mt-1 text-muted-foreground text-[17px]">
+                  {service.description}
+                </p>
               </CardHeader>
-              <CardContent>
-                <CardDescription>{service.description}</CardDescription>
+              <CardContent className="mt-auto px-0 pb-0">
+                <div className="bg-muted/50 h-40 ml-6 rounded-tl-xl border-t border-l border-border" />
               </CardContent>
             </Card>
           ))}
