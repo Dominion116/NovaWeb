@@ -10,16 +10,19 @@ const services = [
     icon: Goal,
     title: "Website Development",
     description: "Custom built websites using the latest technologies like React, Next.js, and Tailwind CSS.",
+    image: "/images/development.jpg",
   },
   {
     icon: BookCheck,
     title: "Website Redesign",
     description: "Transform your outdated site into a modern, high-converting digital experience.",
+    image: "/images/redesign.jpg",
   },
   {
     icon: FolderSync,
     title: "Maintenance & Hosting",
     description: "Reliable hosting solutions and ongoing maintenance to keep your site secure and fast.",
+    image: "/images/hosting.jpg",
   },
 ];
 
@@ -53,7 +56,13 @@ export function Services() {
                 </p>
               </CardHeader>
               <CardContent className="mt-auto px-0 pb-0">
-                <div className="bg-muted/50 h-40 ml-6 rounded-tl-xl border-t border-l border-border" />
+                <div className="ml-6 mt-4 rounded-tl-xl overflow-hidden border-t border-l border-border h-48 relative">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </CardContent>
             </Card>
           ))}
