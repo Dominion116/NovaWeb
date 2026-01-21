@@ -84,7 +84,7 @@ export function Navbar() {
                   )}
                   <span className="sr-only">Toggle theme</span>
                 </Button>
-                <Button size="sm">Get Started</Button>
+                <Button size="sm" className="rounded-full">Get Started</Button>
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
-          <Button className="w-full">Get Started</Button>
+          <Button className="w-full rounded-full">Get Started</Button>
         </div>
       )}
     </nav>
