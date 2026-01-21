@@ -2,37 +2,38 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ArrowUpRight } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20 sm:py-32 bg-secondary/30">
+    <section id="contact" className="py-20 flex items-center justify-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Get in Touch
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Ready to start your project? Contact us today for a free consultation.
-          </p>
-        </div>
-        <div className="mx-auto max-w-xl bg-card/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-primary/5 border border-primary/10">
-          <form className="grid gap-6">
-            <div className="grid gap-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="John Doe" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="john@example.com" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="message">Message</Label>
-              <Textarea id="message" placeholder="Tell us about your project..." />
-            </div>
-            <Button type="submit" className="w-full">
-              Send Message
-            </Button>
-          </form>
+        <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-center">
+          Get in Touch
+        </h2>
+        <p className="mt-4 text-muted-foreground text-lg sm:text-xl text-center max-w-2xl mx-auto">
+          Ready to start your project? Contact us today for a free consultation.
+        </p>
+        <div className="mt-10 sm:mt-16 max-w-xl mx-auto">
+          <div className="flex flex-col border rounded-xl py-8 px-6 bg-card/50 hover:bg-card transition-colors duration-300">
+            <form className="grid gap-6">
+              <div className="grid gap-2">
+                <Label htmlFor="name" className="text-lg font-semibold">Name</Label>
+                <Input id="name" placeholder="John Doe" className="h-12" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="email" className="text-lg font-semibold">Email</Label>
+                <Input id="email" type="email" placeholder="john@example.com" className="h-12" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="message" className="text-lg font-semibold">Message</Label>
+                <Textarea id="message" placeholder="Tell us about your project..." className="min-h-32" />
+              </div>
+              <Button type="submit" size="lg" className="w-full rounded-full text-base mt-2">
+                Send Message <ArrowUpRight className="size-5" />
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
