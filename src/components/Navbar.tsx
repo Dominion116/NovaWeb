@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -12,14 +12,32 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+    
+    // Check initial theme
+    const isDark = document.documentElement.classList.contains("dark");
+    setIsDarkMode(isDark);
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    if (newMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   return (
     <nav
@@ -34,7 +52,7 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2 group">
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-primary group-hover:opacity-80 transition-opacity">
+              <span className="text-2xl font-bold text-primary transition-opacity group-hover:opacity-80">
                 NovaWeb
               </span>
             </a>
@@ -42,7 +60,7 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-center space-x-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -52,12 +70,39 @@ export function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <Button size="sm">Get Started</Button>
+              <div className="flex items-center gap-4">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggleDarkMode}
+                  className="rounded-full"
+                >
+                  {isDarkMode ? (
+                    <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
+                  ) : (
+                    <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
+                  )}
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+                <Button size="sm">Get Started</Button>
+              </div>
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile UI */}
+          <div className="flex items-center gap-2 md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleDarkMode}
+              className="rounded-full"
+            >
+              {isDarkMode ? (
+                <Sun className="h-[1.2rem] w-[1.2rem]" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem]" />
+              )}
+            </Button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-foreground"
