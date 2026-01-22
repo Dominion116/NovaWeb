@@ -44,7 +44,7 @@ export function Navbar() {
     <nav
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
-        scrolled
+        (scrolled || isOpen)
           ? "border-b border-border/40 bg-background/80 backdrop-blur-md py-4 shadow-sm"
           : "bg-transparent py-6"
       )}
@@ -55,7 +55,7 @@ export function Navbar() {
             <a href="/" className="flex items-center gap-2 group">
               <span className={cn(
                 "text-2xl font-bold transition-all group-hover:opacity-80",
-                scrolled ? "text-primary" : "text-white"
+                scrolled || isOpen ? "text-primary" : "text-white"
               )}>
                 NovaWeb
               </span>
@@ -72,7 +72,7 @@ export function Navbar() {
                   whileHover={{ y: -2 }}
                   className={cn(
                     "text-sm font-medium transition-colors relative group",
-                    scrolled 
+                    scrolled || isOpen 
                       ? "text-muted-foreground hover:text-foreground" 
                       : "text-white/80 hover:text-white"
                   )}
@@ -80,7 +80,7 @@ export function Navbar() {
                   {link.name}
                   <span className={cn(
                     "absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
-                    scrolled ? "bg-primary" : "bg-white"
+                    scrolled || isOpen ? "bg-primary" : "bg-white"
                   )} />
                 </motion.a>
               ))}
@@ -92,7 +92,7 @@ export function Navbar() {
                     onClick={toggleDarkMode}
                     className={cn(
                       "rounded-full transition-colors",
-                      !scrolled && "text-white hover:text-white hover:bg-white/10"
+                      !(scrolled || isOpen) && "text-white hover:text-white hover:bg-white/10"
                     )}
                   >
                     {isDarkMode ? (
@@ -110,7 +110,7 @@ export function Navbar() {
                     asChild
                     className={cn(
                       "rounded-full transition-all",
-                      !scrolled && "bg-white text-black hover:bg-white/90 border-none"
+                      !(scrolled || isOpen) && "bg-white text-black hover:bg-white/90 border-none"
                     )}
                   >
                     <a href="#contact" className="flex items-center">
@@ -131,7 +131,7 @@ export function Navbar() {
                 onClick={toggleDarkMode}
                 className={cn(
                   "rounded-full transition-colors",
-                  !scrolled && "text-white hover:text-white hover:bg-white/10"
+                  !(scrolled || isOpen) && "text-white hover:text-white hover:bg-white/10"
                 )}
               >
                 {isDarkMode ? (
@@ -146,7 +146,7 @@ export function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className={cn(
                 "inline-flex items-center justify-center p-2 rounded-md transition-colors",
-                scrolled ? "text-foreground" : "text-white"
+                scrolled || isOpen ? "text-foreground" : "text-white"
               )}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
