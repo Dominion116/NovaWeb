@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   BookCheck,
   FolderSync,
@@ -31,6 +32,9 @@ export function Services() {
     <section id="services" className="py-20 flex items-center justify-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <Badge variant="secondary" className="mb-4 rounded-full">
+            Our Services
+          </Badge>
           <h2 className="text-4xl md:text-[2.5rem] md:leading-[1.2] font-semibold tracking-[-0.03em] text-pretty">
             Strengthen Your Digital Strategy
           </h2>
