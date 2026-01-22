@@ -5,7 +5,7 @@ import {
   FolderSync,
   Goal,
 } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const services = [
   {
