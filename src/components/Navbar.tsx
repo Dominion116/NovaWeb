@@ -52,7 +52,10 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2 group">
-              <span className="text-2xl font-bold text-primary transition-opacity group-hover:opacity-80">
+              <span className={cn(
+                "text-2xl font-bold transition-all group-hover:opacity-80",
+                scrolled ? "text-primary" : "text-white"
+              )}>
                 NovaWeb
               </span>
             </a>
@@ -65,7 +68,12 @@ export function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className={cn(
+                    "text-sm font-medium transition-colors",
+                    scrolled 
+                      ? "text-muted-foreground hover:text-foreground" 
+                      : "text-white/80 hover:text-white"
+                  )}
                 >
                   {link.name}
                 </a>
@@ -75,7 +83,10 @@ export function Navbar() {
                   variant="ghost"
                   size="icon"
                   onClick={toggleDarkMode}
-                  className="rounded-full"
+                  className={cn(
+                    "rounded-full transition-colors",
+                    !scrolled && "text-white hover:text-white hover:bg-white/10"
+                  )}
                 >
                   {isDarkMode ? (
                     <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
@@ -84,7 +95,13 @@ export function Navbar() {
                   )}
                   <span className="sr-only">Toggle theme</span>
                 </Button>
-                <Button size="sm" className="rounded-full">
+                <Button 
+                  size="sm" 
+                  className={cn(
+                    "rounded-full transition-all",
+                    !scrolled && "bg-white text-black hover:bg-white/90 border-none"
+                  )}
+                >
                   Get Started <ArrowUpRight className="ml-2 size-4" />
                 </Button>
               </div>
@@ -97,7 +114,10 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               onClick={toggleDarkMode}
-              className="rounded-full"
+              className={cn(
+                "rounded-full transition-colors",
+                !scrolled && "text-white hover:text-white hover:bg-white/10"
+              )}
             >
               {isDarkMode ? (
                 <Sun className="h-[1.2rem] w-[1.2rem]" />
@@ -107,7 +127,10 @@ export function Navbar() {
             </Button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-foreground"
+              className={cn(
+                "inline-flex items-center justify-center p-2 rounded-md transition-colors",
+                scrolled ? "text-foreground" : "text-white"
+              )}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
