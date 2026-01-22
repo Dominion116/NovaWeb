@@ -2,19 +2,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 
-import { GridPattern } from "@/components/ui/grid-pattern";
-
 export function Hero() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-      <GridPattern
-        width={30}
-        height={30}
-        x={-1}
-        y={-1}
-        className="absolute top-24 inset-x-0 bottom-0 z-0 h-[calc(100%-6rem)] w-full stroke-black/15 [mask-image:linear-gradient(to_bottom_right,white,transparent)] dark:stroke-white/15"
-      />
-      <div className="text-center max-w-3xl relative z-10">
+    <div className="min-h-screen flex items-center justify-center px-6">
+      <div className="text-center max-w-3xl">
         <Badge
           variant="secondary"
           className="rounded-full py-1 border-border whitespace-nowrap"
