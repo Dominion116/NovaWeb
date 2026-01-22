@@ -32,7 +32,7 @@ export function Services() {
     <section id="services" className="py-20 flex items-center justify-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 rounded-full">
+          <Badge className="mb-4 rounded-full px-4 py-1 border border-primary/20 bg-primary/5 text-primary backdrop-blur-md transition-all hover:bg-primary/10">
             Our Services
           </Badge>
           <h2 className="text-4xl md:text-[2.5rem] md:leading-[1.2] font-semibold tracking-[-0.03em] text-pretty">
