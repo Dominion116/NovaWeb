@@ -28,7 +28,7 @@ export function WhyChooseUs() {
     <section id="why-us" className="py-20 flex items-center justify-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <Badge variant="secondary" className="mb-4 rounded-full">
+          <Badge className="mb-4 rounded-full px-4 py-1 border border-primary/20 bg-primary/5 text-primary backdrop-blur-md transition-all hover:bg-primary/10">
             Why Choose Us
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-center">
