@@ -1,8 +1,8 @@
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border py-12">
+    <footer className="bg-background border-t border-border py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center gap-2">
             <span className="text-xl font-bold text-primary">
               NovaWeb
