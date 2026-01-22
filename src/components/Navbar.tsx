@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -44,7 +45,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-border/40 bg-background/80 backdrop-blur-md py-4"
+          ? "border-b border-border/40 bg-background/80 backdrop-blur-md py-4 shadow-sm"
           : "bg-transparent py-6"
       )}
     >
@@ -65,67 +66,83 @@ export function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
               {navLinks.map((link) => (
-                <a
+                <motion.a
                   key={link.name}
                   href={link.href}
+                  whileHover={{ y: -2 }}
                   className={cn(
-                    "text-sm font-medium transition-colors",
+                    "text-sm font-medium transition-colors relative group",
                     scrolled 
                       ? "text-muted-foreground hover:text-foreground" 
                       : "text-white/80 hover:text-white"
                   )}
                 >
                   {link.name}
-                </a>
+                  <span className={cn(
+                    "absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
+                    scrolled ? "bg-primary" : "bg-white"
+                  )} />
+                </motion.a>
               ))}
               <div className="flex items-center gap-4">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={toggleDarkMode}
-                  className={cn(
-                    "rounded-full transition-colors",
-                    !scrolled && "text-white hover:text-white hover:bg-white/10"
-                  )}
-                >
-                  {isDarkMode ? (
-                    <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
-                  ) : (
-                    <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
-                  )}
-                  <span className="sr-only">Toggle theme</span>
-                </Button>
-                <Button 
-                  size="sm" 
-                  className={cn(
-                    "rounded-full transition-all",
-                    !scrolled && "bg-white text-black hover:bg-white/90 border-none"
-                  )}
-                >
-                  Get Started <ArrowUpRight className="ml-2 size-4" />
-                </Button>
+                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={toggleDarkMode}
+                    className={cn(
+                      "rounded-full transition-colors",
+                      !scrolled && "text-white hover:text-white hover:bg-white/10"
+                    )}
+                  >
+                    {isDarkMode ? (
+                      <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
+                    ) : (
+                      <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
+                    )}
+                    <span className="sr-only">Toggle theme</span>
+                  </Button>
+                </motion.div>
+                
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button 
+                    size="sm" 
+                    asChild
+                    className={cn(
+                      "rounded-full transition-all",
+                      !scrolled && "bg-white text-black hover:bg-white/90 border-none"
+                    )}
+                  >
+                    <a href="#contact" className="flex items-center">
+                      Get Started <ArrowUpRight className="ml-2 size-4" />
+                    </a>
+                  </Button>
+                </motion.div>
               </div>
             </div>
           </div>
 
           {/* Mobile UI */}
           <div className="flex items-center gap-2 md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleDarkMode}
-              className={cn(
-                "rounded-full transition-colors",
-                !scrolled && "text-white hover:text-white hover:bg-white/10"
-              )}
-            >
-              {isDarkMode ? (
-                <Sun className="h-[1.2rem] w-[1.2rem]" />
-              ) : (
-                <Moon className="h-[1.2rem] w-[1.2rem]" />
-              )}
-            </Button>
-            <button
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleDarkMode}
+                className={cn(
+                  "rounded-full transition-colors",
+                  !scrolled && "text-white hover:text-white hover:bg-white/10"
+                )}
+              >
+                {isDarkMode ? (
+                  <Sun className="h-[1.2rem] w-[1.2rem]" />
+                ) : (
+                  <Moon className="h-[1.2rem] w-[1.2rem]" />
+                )}
+              </Button>
+            </motion.div>
+            <motion.button
+              whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
               className={cn(
                 "inline-flex items-center justify-center p-2 rounded-md transition-colors",
@@ -133,29 +150,41 @@ export function Navbar() {
               )}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
 
       {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border p-4 space-y-4 shadow-lg animate-in slide-in-from-top-5">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
-          <Button className="w-full rounded-full">
-            Get Started <ArrowUpRight className="ml-2 size-4" />
-          </Button>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border overflow-hidden shadow-lg"
+          >
+            <div className="p-4 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <Button asChild className="w-full rounded-full">
+                <a href="#contact" onClick={() => setIsOpen(false)}>
+                  Get Started <ArrowUpRight className="ml-2 size-4" />
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
