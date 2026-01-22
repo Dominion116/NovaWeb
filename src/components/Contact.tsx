@@ -2,15 +2,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight } from "lucide-react";
 
 export function Contact() {
   return (
     <section id="contact" className="py-20 flex items-center justify-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-center">
-          Get in Touch
-        </h2>
+        <div className="text-center">
+          <Badge variant="secondary" className="mb-4 rounded-full">
+            Contact Us
+          </Badge>
+          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-center">
+            Get in Touch
+          </h2>
+        </div>
         <p className="mt-4 text-muted-foreground text-lg sm:text-xl text-center max-w-2xl mx-auto">
           Ready to start your project? Contact us today for a free consultation.
         </p>
